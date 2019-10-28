@@ -7,7 +7,7 @@ mix.webpackConfig({
       '@': path.resolve(process.cwd(), 'assets/')
     }
   }
-}).react(
+}).js(
   'assets/js/app.js',
   '.tmp/public/js'
 ).sass(

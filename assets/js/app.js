@@ -1,9 +1,20 @@
-import React from 'react'
-import {render} from 'react-dom'
-import Root from '@/js/components/Root'
-import {configureStore, history} from '@/js/store/config'
+import Vue from 'vue'
+import Vuelidate from 'vuelidate'
+import VueNotification from 'vue-notification'
+import VueBootstrap from 'bootstrap-vue'
 
-render(
-  <Root store={configureStore} history={history} />,
-  document.getElementById('root')
-)
+import store from '@/js/store'
+import router from '@/js/routers'
+
+import App from '@/js/components/App'
+
+Vue.use(Vuelidate)
+Vue.use(VueNotification)
+Vue.use(VueBootstrap)
+
+new Vue({
+  store,
+  router,
+  components: { App },
+  template: '<App/>'
+}).$mount('#app')

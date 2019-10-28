@@ -1,28 +1,13 @@
-import React, {PureComponent} from 'react'
-import {Switch, Route} from 'react-router-dom'
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+
 import routes from '@/js/routers/routes'
-import Layout from '@/js/components/layouts'
 
-class Routers extends PureComponent {
-  get routesMap() {
-    return routes.map((route, idx) => {
-      return (
-        <Route {...route} key={idx}/>
-      )
-    })
-  }
-  get layoutIs() {
-    return 'Default'
-  }
-  render() {
-    return (
-      <Layout is={this.layoutIs}>
-        <Switch>
-          {this.routesMap}
-        </Switch>
-      </Layout>
-    )
-  }
-}
+Vue.use(VueRouter)
 
-export default Routers
+const Router = new VueRouter({
+  mode: 'history',
+  routes
+})
+
+export default Router
