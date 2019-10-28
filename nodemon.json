@@ -1,0 +1,26 @@
+{
+    "restartable": "rs",
+    "ignore": [
+      ".git/**/*",
+      ".tmp/**/*",
+      "node_modules/**/*",
+      "assets/**/*",
+      "views/**/*",
+      ".editorconfig",
+      ".eslintignore",
+      ".eslintrc",
+      ".gitignore",
+      ".npmrc",
+      ".sailsrc",
+      "package.json",
+      "package-lock.json",
+      "README.md",
+      "webpack.mix.js"
+    ],
+    "watch": [
+      "api/**/*",
+      "config/**/*"
+    ],
+    "verbose": true,
+    "ext": "js,json"
+  }

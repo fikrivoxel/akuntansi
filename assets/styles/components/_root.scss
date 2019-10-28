@@ -1,0 +1,10 @@
+.root-content {
+  position: relative;
+  min-height: 100vh;
+  background-color: #f5f6f8;
+  &.active {
+    .sidebar {
+      transform: translateX(0);
+    }
+  }
+}

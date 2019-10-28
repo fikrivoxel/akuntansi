@@ -1,0 +1,16 @@
+.card-small {
+  .card-header {
+    padding: 1rem 1rem;
+  }
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  background-color: $white;
+  border-bottom: 1px solid #e1e5eb;
+  &:first-child {
+    border-radius: .625rem .625rem 0 0;
+  }
+}
