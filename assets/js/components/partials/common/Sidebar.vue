@@ -4,7 +4,7 @@
       <router-link to="/" class="sidebar-title-link">
         Akuntansi
       </router-link>
-      <button type="button" class="sidebar-title-back">
+      <button type="button" class="sidebar-title-back" @click="$emit('on-click')">
         <i class="fa fa-chevron-left fa-fw" />
       </button>
     </div>
@@ -50,7 +50,6 @@
     },
     methods: {
       handleClickOpen(idx) {
-        console.log(idx)
         if (this.openMenuIdx === idx) idx = -1
         this.openMenuIdx = idx
       }

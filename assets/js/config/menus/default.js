@@ -7,21 +7,6 @@ export default [
     }
   },
   {
-    meta: {
-      name: 'Menu',
-      icon: 'fa fa-folder'
-    },
-    subsmenu: [
-      {
-        to: '/',
-        meta: {
-          name: 'Subs Menu',
-          icon: 'fa fa-folder'
-        }
-      }
-    ]
-  },
-  {
     to: '/jenis-barang',
     meta: {
       name: 'Jenis Barang',

@@ -4,6 +4,10 @@ export default {
   path: '/',
   component: Dashboard,
   meta: {
-    layout: 'Default'
+    layout: 'Default',
+    title: {
+      name: 'Home',
+      substitle: 'Dasboard'
+    }
   }
 }

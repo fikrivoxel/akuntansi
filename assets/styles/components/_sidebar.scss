@@ -7,7 +7,10 @@
   z-index: 30;
   transform: translateX(-100%);
   will-change: transform;
-  box-shadow: 0 0.125rem 9.375rem rgba(90, 97, 105, .1), 0 0.25rem 0.5rem rgba(90, 97, 105, .12), 0 0.9375rem 1.375rem rgba(90, 97, 105, .1), 0 0.4375rem 2.1875rem rgba(165, 182, 201, .1);
+  box-shadow: 0 0.125rem 9.375rem rgba(90, 97, 105, .1),
+  0 0.25rem 0.5rem rgba(90, 97, 105, .12),
+  0 0.9375rem 1.375rem rgba(90, 97, 105, .1),
+  0 0.4375rem 2.1875rem rgba(165, 182, 201, .1);
   @include transition(all .15s);
   @include media-breakpoint-up(md) {
     max-width: 250px;
@@ -20,6 +23,7 @@
 
 .sidebar-title {
   position: relative;
+  border-bottom: 1px solid #e1e5eb;
 }
 
 .sidebar-title-link {
@@ -30,7 +34,6 @@
   height: 60px;
   color: #3d5170;
   text-align: center;
-  border-bottom: 1px solid #e1e5eb;
   @include hover {
     color: rgba(black, .9);
     text-decoration: none;
@@ -66,4 +69,61 @@
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.sidebar-menu-item {
+  position: relative;
+}
+
+.sidebar-menu-link,
+.sidebar-subsmenu-link {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  width: 100%;
+  padding: 15px 25px;
+  background-color: #fff;
+  color: #3d5170;
+  border: {
+    top: 0;
+    bottom: 1px solid #e1e5eb;
+    left: 0;
+    right: 0;
+  }
+  text-align: left;
+  @extend .text-truncate;
+  .fa-fw {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #cacedb;
+  }
+  @include hover-focus {
+    color: $primary;
+    border-left: 3px solid #007bff;
+    text-decoration: none;
+    outline: 0;
+    box-shadow: none;
+    .fa-fw {
+      color: $primary;
+    }
+  }
+}
+
+.sidebar-menu-caret {
+  position: relative;
+  &::after {
+    position: absolute;
+    right: 25px;
+    font: {
+      family: "Font Awesome 5 Free";
+      weight: 900;
+    }
+    content: '\f104';
+    @include transition(transform .15s);
+  }
+  &.open {
+    &::after {
+      transform: rotate(-90deg);
+    }
+  }
 }

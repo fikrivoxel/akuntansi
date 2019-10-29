@@ -2,4 +2,49 @@
   position: relative;
   min-height: 100vh;
   background-color: #f5f6f8;
+  &.open {
+    .sidebar {
+      transform: translateX(0);
+    }
+  }
+}
+
+.isauth-content {
+  position: relative;
+  width: 100%;
+  @include transition(all .15s);
+  @include media-breakpoint-up(md) {
+    max-width: calc(100% - 250px);
+    margin-left: 250px;
+  }
+  @include media-breakpoint-up(lg) {
+    max-width: calc(100% - 300px);
+    margin-left: 300px;
+  }
+}
+
+.isauth-container {
+  padding-top: 60px;
+}
+
+.isauth-header {
+  padding: {
+    top: 24px;
+    bottom: 24px;
+  }
+}
+
+.isauth-substitle {
+  font: {
+    size: 10px;
+    weight: 500;
+  }
+  color: #818ea3;
+  letter-spacing: 2px;
+  @extend .text-uppercase;
+}
+
+.isauth-title {
+  color: #3d5170;
+  margin-bottom: 0;
 }
