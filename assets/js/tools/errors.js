@@ -1,23 +1,20 @@
 import _ from 'lodash'
+
 export default function (opts, err = new Error()) {
   if (!_.isError(err)) err = new Error()
+  let re = {}
   if (opts.response) {
     let {data} = opts.response
-    opts = {
-      ...opts,
+    re = {
       name: 'Error',
       message: data.message
     }
   } else {
-    opts = {
-      ...opts,
+    re = {
       name: 'Error',
       message: err.message
     }
   }
-  err = {
-    ...err,
-    ...opts
-  }
+  _.extend(err, re)
   return err
 }

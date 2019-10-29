@@ -43,10 +43,11 @@ export default {
     }
   },
   actions: {
-    async getAll({commit}, page = 1, perPage = 10) {
+    async getAll({commit}, page, perPage) {
       try {
-        let res = await JenisBarang.getAll(page, perPage)
-        commit('setList', res)
+        let {data, pagination} = await JenisBarang.getAll(page, perPage)
+        commit('setList', data)
+        commit('setPagination', pagination)
         return Promise.resolve()
       } catch (err) {
         return Promise.reject(err)

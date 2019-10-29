@@ -5,12 +5,12 @@ import errors from '@/js/tools/errors'
 export default {
   async getAll(page = 1, perpage = 10) {
     try {
-      let {data: {result}} = await axios.get(`${API_BASE_URL}/jenisbarang`, {
+      let {data: {result: {data, pagination}}} = await axios.get(`${API_BASE_URL}/jenisbarang`, {
         params: {
           page, perpage
         }
       })
-      return result
+      return {data, pagination}
     } catch (err) {
       return Promise.reject(
         errors(err)
