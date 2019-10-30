@@ -4,20 +4,22 @@
       Jenis Barang
       <slot name="modal" />
     </div>
-    <vuetable
-      ref="table"
-      pagination-path="pagination"
-      :api-mode="false"
-      :fields="fields"
-      :data-manager="dataManager"
-      :per-page="perPage"
-      :css="css.table"
-      @vuetable:pagination-data="onPaginationData"
-    >
-      <template v-slot:actions="props">
-        <slot name="actions" :row-data="props.rowData"></slot>
-      </template>
-    </vuetable>
+    <div class="table-responsive">
+      <vuetable
+        ref="table"
+        pagination-path="pagination"
+        :api-mode="false"
+        :fields="fields"
+        :data-manager="dataManager"
+        :per-page="perPage"
+        :css="css.table"
+        @vuetable:pagination-data="onPaginationData"
+      >
+        <template v-slot:actions="props">
+          <slot name="actions" :row-data="props.rowData"></slot>
+        </template>
+      </vuetable>
+    </div>
     <vue-pagination ref="pagination"
                     @vuetable-pagination:change-page="onChangePage" />
   </div>
@@ -40,6 +42,10 @@
           {
             name: 'jenis_barang',
             title: 'Nama'
+          },
+          {
+            name: '__slot:actions',
+            title: 'Actions'
           }
         ],
         css: {
@@ -94,8 +100,10 @@
         else if (page === 'prev') to = current_page - 1
         try {
           await this.$store.dispatch('JenisBarang/getAll', to, this.perPage)
-        } catch (e) {}
-        this.$refs.table.changePage(to)
+          this.$refs.table.changePage(to)
+        } catch (err) {
+          console.log(err)
+        }
       }
     }
   }
